@@ -24,6 +24,7 @@ for i in range(3):
     for j in range(3):
         print(i * 10 + j, end=' ')
     print()
+print()
 #%%
 # define txt and input some text from the keyboard into it
 txt = input("Enter some text: ")
