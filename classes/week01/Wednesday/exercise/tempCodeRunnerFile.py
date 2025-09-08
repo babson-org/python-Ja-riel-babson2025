@@ -1,3 +1,5 @@
-for i, item in enumerate(mylist):
-    shifted_list[(i + 3) % length] = item
-print(shifted_list)
+txt = input('Please enter some text: ')
+for letter in txt:
+    if letter.isalpha():
+        print(letter, end = '')
+print()
