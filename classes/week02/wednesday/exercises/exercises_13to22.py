@@ -5,16 +5,15 @@ from classes.week00.second_class.utils import clear_screen
 Ask the user for a number and print whether it is positive, negative, or zero.
 '''
 # enter code here
-num = int(input("Enter a number please: "))
-if num > 0:
-    print("The number entered is POSITIVE.")
-elif num < 0:
-    print("The number entered is NEGATIVE.")
-else:
-    print("The number is ZERO.")
-
-pause=input('pause')
-clear_screen()
+txt = 'Enter a number please: '
+while True: 
+    try:
+        num = int(input(txt))
+        break
+    except ValueError:
+        txtm = 'A number for...'
+    pause=input('pause')
+    clear_screen()
 
 '''
 #14 - Even/Odd Check
@@ -53,9 +52,7 @@ Print all numbers from 1 to 20, skipping multiples of 3.
 '''
 # enter code here
 for i in range(1, 21):
-    if i % 3 == 0:
-        continue
-    print(i)
+    if i % 3 != 0: print(i)
 
 pause=input('pause')
 clear_screen()
