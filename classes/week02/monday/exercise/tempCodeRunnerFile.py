@@ -1,0 +1,5 @@
+sentence = input("Enter a sentence: ")
+print("Uppercase:", sentence.upper())
+print("Lowercase:", sentence.lower())
+print("Capitalized:", sentence.capitalize())
+print("Split into words:", sentence.split())

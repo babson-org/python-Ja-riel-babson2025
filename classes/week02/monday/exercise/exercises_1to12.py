@@ -48,8 +48,9 @@ Write a program that asks the user for their first and last name, then prints a 
 # enter your code here
 first = input("Enter your first name: ")
 last = input("Enter your last name: ")
+first = first.capitalize ()
+last = last.capitalize()
 print(f"Hello, {first} {last}!")
-
 
 pause=input('pause')
 clear_screen()
@@ -60,6 +61,9 @@ Write a program that prints your Python version and platform using the sys and p
 '''
 # enter your code here
 import sys, platform
+import pprint
+pprint.pprint(dir(sys))
+print(type(sys.version))
 print("Python version:", sys.version)
 print("Platform:", platform.system(), platform.release())
 
@@ -75,7 +79,7 @@ and division (both / and //).
 # enter your code here
 a = float(input("Enter first number: "))
 b = float(input("Enter second number: "))
-print("Sum:", a + b)
+print("Total:", a + b)
 print("Difference:", a - b)
 print("Product:", a * b)
 print("Division (/):", a / b)
