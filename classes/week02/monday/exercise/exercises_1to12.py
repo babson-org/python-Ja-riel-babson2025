@@ -5,6 +5,16 @@ from classes.week00.second_class.utils import clear_screen
 Write down the steps a program would need to make a cup of tea. Then implement a Python 
 function make_tea() that prints each step.
 '''
+steps=['step1','step2','step3']
+def make_tea(myList):
+    myList[2] = "step5"
+    for item in myList:
+        print(item)
+    
+
+make_tea(steps)
+print(steps)
+
 # enter your code here
 def make_tea():
     steps = [
@@ -67,6 +77,9 @@ print(type(sys.version))
 print("Python version:", sys.version)
 print("Platform:", platform.system(), platform.release())
 
+#pprint.pprint(dir(sys))
+print(type(sys.version))
+print(sys.version, sys.platform)
 
 pause=input('pause')
 clear_screen()
@@ -94,6 +107,11 @@ clear_screen()
 Ask the user to input a sentence. Print it in uppercase, lowercase, with the first letter 
 capitalized, and split it into words.
 '''
+txt = input('please entr some text:')
+print(txt.upper())
+print(txt.lower())
+print(txt.capitalize())
+print(txt.split())
 
 # enter your code here
 sentence = input("Enter a sentence: ")
@@ -117,7 +135,10 @@ with_parentheses = (10 + 2) * 5 / (2 - 3) ** 2
 print("Without parentheses:", no_parentheses)
 print("With parentheses:", with_parentheses)
 
+print(x)
 
+x = 2**3**2
+print(x)
 pause=input('pause')
 clear_screen()
 '''
