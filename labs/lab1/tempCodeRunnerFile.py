@@ -6,7 +6,7 @@ while True:
         else:
             print('The number must be odd! Please try again: ')
     except ValueError:
-        print('Invalid value. Please try again!')
+        print('Invalid value! Please try again!')
 
 ## DEFINES THE MIDDLE OF DIAMOND PARAMETERS FOR THE WIDTH OF THE DIAMOND
 middle = height // 2
@@ -15,17 +15,18 @@ middle = height // 2
 ### BEFORE AND BETWEEN THE STARTING POINT OF THE DIAMOND
 for idx in range (middle, -1, -1):
     before = " " * idx
-    between = " " * ((middle - idx) * 2-1)
-if (middle - idx * 2-1 == -1):
-    print(before + "*")
+    between = " " * ((middle - idx) * 2 - 1)
+    if between == '':
+        print(before + "*")
 else:
     print(before + "*" + between + "*")
 
 #### DEFINES THE BOTTOM HALf OF THE DIAMOND
-for idx in range (1, middle+1):
+for idx in range (1, middle + 1):
     before = " " * idx
-    between = " " * ((middle - idx) *2-1)
-    if (middle-idx * 2-1 == -1):
+    between = " " * ((middle - idx) * 2 - 1)
+    if between == '':
         print(before + "*")
 else:
-    print(before + "*" + between + "*")
+    print(before + "*" + between + "*") 
+
