@@ -1,13 +1,15 @@
-alphebet = []
-for idx in range(97, 97+26):
-    alphebet.append(chr(idx))
-print(alphebet)
-shift = int(input('Enter shift'))
-    check int>0<26
-shift = 8
-shift.array = [None] * 26
-encrypt = ''
-for idx in range(26):
-    idx = alphebet.idex(char)
-new_index = (idx-shift) % 26
-encrypt += shift_alphebet[new_index]
+Letters = 0
+Words = 1
+Sentences = 0
+
+txt = input('Enter text please: ').strip()
+for char in txt:
+    if char.isalpha(): 
+        Letters += 1
+    elif char == '': 
+        Words += 1
+    elif char in ('.', '!', '?'): 
+        Sentences +=1
+print('letters', Letters)
+print('words', Words)
+print('sentences', Sentences)
