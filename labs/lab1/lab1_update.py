@@ -18,11 +18,9 @@ def main():
         else:
             exit()
 
-
-
 """
 Lab 1 - Python Basics
-Author: <Your Name>
+Author: <Ja-riel Bailey>
 Instructions: Complete each part below. Save your work and commit + sync in Codespaces.
 """
 
@@ -34,11 +32,9 @@ def draw_diamond():
     Ask the user for an odd number for the diamond height
     and print a symmetric diamond of that height.
     """
-    
-    print("you have some work todo!, draw_diamond")
 
     # TODO: Prompt user for an odd number
-    height = int(input("Enter an odd number for the diamond height: "))
+    height = int(input('Enter and odd number for the diamond height'))
 
     # TODO: Draw the top half of the diamond
 
@@ -47,6 +43,39 @@ def draw_diamond():
 # Uncomment to test Part 1
 # draw_diamond()
 
+## ENSURES THAT THE USER ENTERS A NUMBERIC VALUE AND NOT WORDS/INVALID VALUES
+while True: 
+    try:
+        height = int(input('Enter and odd number for the diamond height: '))
+        if height % 2 == 1:
+            break
+        else:
+            print('The number must be odd! Please try again')
+    except ValueError:
+        print('Invalid value. Please try again!')
+    print("you have some work todo!, draw_diamond")
+
+## DEFINES THE MIDDLE OF DIAMOND PARAMETERS FOR THE WIDTH OF THE DIAMOND
+middle = height // 2
+
+## OUTLINES SPACES FOR THE LENGTH OF THE STARS FOR BOTH SPACES 
+### BEFORE AND BETWEEN THE STARTING POINT OF THE DIAMOND
+for idx in range (1, middle, -1, -1):
+    before = " " * idx
+    between = " " * ((middle - idx) *2-1)
+if (middle * 2-1 == -1):
+    print(before + "*")
+else:
+    print(before + "*" + between + "*")
+
+#### DEFINES THE BOTTOM HALD OF THE DIAMOND
+for idx in range (1, middle+1):
+    before = " " * idx
+    between = " " * ((middle - idx) *2-1)
+if (middle * 2-1 == -1):
+    print(before + "*")
+else:
+    print(before + "*" + between + "*")
 
 # ==============================
 # Part 2: Count Letters, Words, and Sentences
@@ -89,8 +118,32 @@ def caesar_cipher():
     Ask the user for text and a shift value.
     Provide options to encrypt or decrypt the text using a Caesar cipher.
     """
+## CREATES THE TRADITIONAL ALPHEBET TO USE FOR ENCRYPTING THE MESSAGE
+text = input("Enter the message you want to encrypt: ")
+alphebet = []
+for idx in range(97, 97 + 26):
+    alphebet.append(chr(idx))
+print(alphebet)
 
-    print("you have some work todo!, caesar_cypher")
+### SHIFTS THE SEQUENCE OF THE ALPHEBET TO ENCRYPT
+shift = int(input('Enter shift value: '))
+if shift >= 0 or shift <= 26:
+    print('Shift value must be between 1 and 26')
+    exit()
+
+shift.aLphebet = [None] * 26
+
+
+for char in text: 
+    if char in alphebet:
+        idx = alphebet.idex(char)
+        new_index = (idx + shift) % 26
+        result += alphebet[new_index]
+    else:
+        result += char
+    
+
+print("you have some work todo!, caesar_cypher")
 
     # TODO: Get user input text
     text = input("Enter text: ")
@@ -110,8 +163,3 @@ def caesar_cipher():
 # Uncomment to test Part 3
 # caesar_cipher()
 
-
-
-
-if __name__ == "__main__":
-    main()
