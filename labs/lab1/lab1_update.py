@@ -51,7 +51,7 @@ def draw_diamond():
 while True: 
     try:
         height = int(input("Enter an odd number for the diamond height: "))
-        if height % 2 == 1:
+        if height > 0 and height % 2 == 1:
             break
         else:
             print("The number must be odd and positive! Try again.")
@@ -70,15 +70,15 @@ for idx in range (middle, -1, -1):
 else:
     print(before + "*" + between + "*")
 
-#### DEFINES THE BOTTOM HALf OF THE DIAMOND
+### DEFINES THE BOTTOM HALf OF THE DIAMOND
 for idx in range (1, middle + 1):
     before = " " * idx
     between = " " * ((middle - idx) * 2 - 1)
     if (middle - idx) * 2 - 1 == -1:
         print(before + "*")
 else:
-    print(before + "*" + between + "*") 
-
+    print(before + "*" + between + "*")
+     
 # ==============================
 # Part 2: Count Letters, Words, and Sentences
 # ==============================
@@ -90,7 +90,7 @@ def text_analysis():
         - Number of words   (use split())
         - Number of sentences (., ?, !) 
     """
-
+      
     print("you have some work todo!, text_analysis")
 
     # TODO: Get user input
@@ -113,14 +113,16 @@ def text_analysis():
 
 ~~~~~~~~~~ My Code ~~~~~~~~~
 # DEFINES THE LETTERS, WORDS, AND SENTENCES THAT WILL BE COUNTED AFTER USER'S INPUT
-def text_analysis():
-    txt = input('Enter text + punctuation please: ').strip()
-Letter = 0
+def text_analysis(): 
+### ARE THE VARIABLES COUNTED
+Letters = 0
 Words = 1
 Sentences = 0
 
-## ASKS THE USER FOR A BLOCK OF TEXT
-text_analysis
+## ASKS THE USER TO INPUT A STRING OF TEXT
+txt = input('Enter text + punctuation please: ').strip()
+
+## COUNTS THE LETTERS, WORDS, AND SENTENCES
 for char in txt:
     if char.isalpha(): 
         Letters += 1
@@ -128,11 +130,10 @@ for char in txt:
         Words += 1
     elif char in ('.', '!', '?'): 
         Sentences +=1
-print("\n--- Text Analysis ---")
-print("Letters:", letters)
-print("Words:", words)
-print("Sentences:", sentences)
-
+print('Letters: ', Letters)
+print('Words: ', Words)
+print('Sentences: ', Sentences)
+  
 
 # ==============================
 # Part 3: Caesar Cipher – Encrypt and Decrypt
@@ -142,30 +143,6 @@ def caesar_cipher():
     Ask the user for text and a shift value.
     Provide options to encrypt or decrypt the text using a Caesar cipher.
     """
-## CREATES THE TRADITIONAL ALPHEBET TO USE FOR ENCRYPTING THE MESSAGE
-text = input("Enter the message you want to encrypt: ").lower()
-alphabet = []
-for idx in range(97, 97 + 26):
-    alphabet.append(chr(idx))
-print("Alphabet: ", alphabet)
-
-### SHIFTS THE SEQUENCE OF THE ALPHEBET TO ENCRYPT
-shift = int(input('Enter shift value (1-26) please: '))
-if shift < 1 or shift > 26: 
-    print('Shift value must be between 1 and 26') 
-    exit()
-result = ''
-
-for char in text: 
-    if char in alphabet:
-        idx = alphabet.index(char)
-        new_index = (idx + shift) % 26
-        result += alphabet[new_index]
-    else:
-        result += char
-print('Encrypted message - here: ', result)
-
-
     # TODO: Get user input text
     text = input("Enter text: ")
 
@@ -184,3 +161,27 @@ print('Encrypted message - here: ', result)
 # Uncomment to test Part 3
 # caesar_cipher()
 
+~~~~~~~~~~~ My Code ~~~~~~~~~~
+## ASKS USER TO INPUT TEXT & CREATES THE TRADITIONAL ALPHEBET TO USE FOR ENCRYPTING THE MESSAGE
+text = input("Enter the message you want to encrypt: ").lower()
+alphabet = []
+for idx in range(97, 97 + 26):
+    alphabet.append(chr(idx))
+print("Alphabet: ", alphabet)
+
+### SHIFTS THE SEQUENCE OF THE ALPHEBET TO ENCRYPT
+shift = int(input('Enter shift value (1-26) please: '))
+if shift < 1 or shift > 26: 
+    print('Shift value must be between 1 and 26') 
+    exit()
+result = ''
+
+#### LOOPS THROUGH EACH CHARACTER OF THE ALPHABET
+for char in text: 
+    if char in alphabet:
+        idx = alphabet.index(char)
+        new_index = (idx + shift) % 26
+        result += alphabet[new_index]
+    else:
+        result += char     #LEAVES OUT NON-CHARACTERS OF THE ALPHABET (SPACES, PUNCTUATION, ETC.)
+print('Encrypted message - here: ', result)
