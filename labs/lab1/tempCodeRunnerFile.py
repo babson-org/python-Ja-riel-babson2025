@@ -1,18 +1,31 @@
-Letters = 0
-Words = 1
-Sentences = 0
+while True: 
+    try:
+        height = int(input("Enter an odd number for the diamond height: "))
+        if height > 0 and height % 2 == 1:
+            break
+        else:
+            print("The number must be odd and positive! Try again.")
+    except ValueError:
+        print("Invalid input. Please enter a number.")
 
-## ASKS THE USER TO INPUT A STRING OF TEXT
-txt = input('Enter text + punctuation please: ').strip()
+# DEFINES THE MIDDLE INDEX AND SEPERATES THE TOP & BOTTOM HALVES OF THE DIAMOND
+middle = height // 2
 
-## COUNTS THE LETTERS, WORDS, AND SENTENCES
-for char in txt:
-    if char.isalpha(): 
-        Letters += 1
-    elif char == ' ': 
-        Words += 1
-    elif char in ('.', '!', '?'): 
-        Sentences +=1
-print(Letters)
-print(Words)
-print(Sentences)
+## OUTLINES SPACES FOR THE LENGTH OF THE STARS FOR BOTH SPACES 
+for idx in range (middle, -1, -1):
+    before = " " * idx
+    between = " " * ((middle - idx) * 2 - 1)
+    if (middle - idx) * 2 - 1 == -1:
+        print(before + "*")
+else:
+    print(before + "*" + between + "*")
+
+### DEFINES THE BOTTOM HALf OF THE DIAMOND
+for idx in range (1, middle + 1):
+    before = " " * idx
+    between = " " * ((middle - idx) * 2 - 1)
+    if (middle - idx) * 2 - 1 == -1:
+        print(before + "*")
+else:
+    print(before + "*" + between + "*")
+     

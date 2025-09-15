@@ -133,7 +133,7 @@ for char in txt:
 print('Letters: ', Letters)
 print('Words: ', Words)
 print('Sentences: ', Sentences)
-  
+
 
 # ==============================
 # Part 3: Caesar Cipher – Encrypt and Decrypt
