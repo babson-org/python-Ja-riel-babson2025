@@ -44,6 +44,12 @@ def draw_diamond():
 # draw_diamond()
 
 ~~~~~~~~~~ My Code ~~~~~~~~~~~~~
+################################
+""""""
+# THIS PROGRAM GATHERS INPUT (ODD NUMBER) FROM THE USER TO OUTPUT THE OUTLINE OF A DIAMOND.
+## THIS IS ACHIEVED BY USING A WHILE LOOP TO KEEP ASKING THE USER FOR INPUT UNTIL THE 
+### NUMBER IS POSITIVE. THIS WILL LATER DETERMINE THE LENGTH OF THE DIAMOND FROM TOP TO BOTTOM
+#################################
 
 # ENSURES THAT THE USER ENTERS A NUMBERIC VALUE AND NOT WORDS/INVALID VALUES & KEEPS ASKING THEM 
 # - TO INPUT A VALUE IF THE INPUT IS NOT NUMERIC
@@ -56,14 +62,14 @@ while True:
         else:
             print("The number must be odd and positive! Try again.")
     except ValueError:
-        print("Invalid input. Please enter a number.")
+        print("Invalid input. Please enter a number.")  #CHECKS INPUT FOR ODD NUMBER
 
 # DEFINES THE MIDDLE INDEX AND SEPERATES THE TOP & BOTTOM HALVES OF THE DIAMOND
-middle = height // 2
+middle = height // 2    # DETERMINE HOW MANY ROWS GO INTO THE TOP AND BOTTOM HALVES
 
 ## OUTLINES SPACES FOR THE LENGTH OF THE STARS FOR BOTH SPACES 
 for idx in range (middle, -1, -1):
-    before = " " * idx
+    before = " " * idx                     # PRINTS OUT SINGLES STARS AFTER A NUMBER OF SPACES
     between = " " * ((middle - idx) * 2 - 1)
     if (middle - idx) * 2 - 1 == -1:
         print(before + "*")
@@ -77,7 +83,7 @@ for idx in range (1, middle + 1):
     if (middle - idx) * 2 - 1 == -1:
         print(before + "*")
 else:
-    print(before + "*" + between + "*")
+    print(before + "*" + between + "*")   # PRINTS THE FINAL DIAMOND OUTLINE USING STARS
      
 # ==============================
 # Part 2: Count Letters, Words, and Sentences
@@ -112,6 +118,11 @@ def text_analysis():
 # text_analysis()
 
 ~~~~~~~~~~ My Code ~~~~~~~~~
+#############################
+# THIS PROGRAM PERFORMS A TEXT ANALYSIS BY COUNTING THE NUMBER OF LETTERS,
+# WORDS, AND SENTENCES IN A STRING PROVIDED BY USER INPUT
+#############################
+
 # DEFINES THE LETTERS, WORDS, AND SENTENCES THAT WILL BE COUNTED AFTER USER'S INPUT
 def text_analysis(): 
 ### ARE THE VARIABLES COUNTED
@@ -128,7 +139,7 @@ for char in txt:
         Letters += 1
     elif char == ' ': 
         Words += 1
-    elif char in ('.', '!', '?'): 
+    elif char in ('.', '!', '?'):  # ACCOUNTS FOR PUNCTUATION TO INDICATE A SENTENCE
         Sentences +=1
 print('Letters: ', Letters)
 print('Words: ', Words)
@@ -162,10 +173,16 @@ def caesar_cipher():
 # caesar_cipher()
 
 ~~~~~~~~~~~ My Code ~~~~~~~~~~
+###############################
+# THIS PROGRAM ENCRYPTS THE MESSAGE A USER PROVIDES BY USING A  Caesar cipher, 
+# WHICH SHIFTS, BY USER'S CHOICE, THE LETTERS OF THEIR MESSAGE TO THE NEXT  
+# LETTER OF THE ALPHABET BY A FIXED NUMBER POSITION
+###############################
+
 ## ASKS USER TO INPUT TEXT & CREATES THE TRADITIONAL ALPHEBET TO USE FOR ENCRYPTING THE MESSAGE
-text = input("Enter the message you want to encrypt: ").lower()
+text = input("Enter the message you want to encrypt: ").lower() # ONLY ENCRYPTS LOWERCASE LETTERS
 alphabet = []
-for idx in range(97, 97 + 26):
+for idx in range(97, 97 + 26):  # 97 REPRESENTS 'A' IN THE ASCII ALPHABET
     alphabet.append(chr(idx))
 print("Alphabet: ", alphabet)
 
