@@ -16,11 +16,19 @@ def calc_score(board: list[int]):
         '''         
          
         # TODO: Sum the values at board[a], board[b], board[c] 
+            # '_ =_' CALCULATES THE SUM OF MOVES FROM THE USER
         # TODO: Return 30 if X wins, -30 if O wins otherwise do not return
+            # PRINTS A STATEMENT TO THE USER AS TO WHETHER THEY WON OR NOT
+            # IF/ELSE STATEMENT IS NEEDED
         pass
      
     # TODO: For each of the 8 ways to win
+        # IF STATEMENTS THAT IDENTIFY EACH OF THE POSSIBLE MOVES THE USER COULD MAKE TO WIN
+        # NEEDS TO INCLUDE HOW THE COMPUTER WILL RESPOND TO THE USER'S MOVE
     # TODO: Check the cells in each row, column, or diagonal using line_sum
+        # CHECKS EACH CELL FOR AN 'X' OR 'O' VALUE IN EITHER A ROW, COLUMN, OR DIAGONAL
+        # LINE_SUM 
     # TODO: Return 0 if line_sum() didn't return 30 or -30
+        #
     pass
 
