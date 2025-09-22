@@ -1,0 +1,182 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "# 🧪 Lab 1 Reinforcement Exercises\n",
+        "These exercises build on Lab 1 concepts: input handling, string manipulation, control flow, and basic algorithms.\n",
+        "Each problem includes a full description and a code cell for your solution."
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## 🟩 Exercise 25: Vowel and Consonant Counter\n",
+        "**Problem:** Ask the user for a block of text. Count and display the number of vowels and consonants. Ignore non-letter characters.\n",
+        "\n",
+        "**Input:**\n",
+        "- A string of text\n",
+        "\n",
+        "**Output:**\n",
+        "- Number of vowels\n",
+        "- Number of consonants"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {},
+      "outputs": [],
+      "source": [
+        "Vowels = \"aeiou_AEIOU\"\n",
+        "Vowel_Count = 0\n",
+        "Consonant_Count = 0\n",
+        "\n",
+        "txt = input(\"Please Enter a Block of Text: \") \n",
+        "\n",
+        "for char in txt:\n",
+        "    if char.isalpha():\n",
+        "        if char in Vowels:\n",
+        "            Vowel_Count += 1\n",
+        "        else:\n",
+        "            Consonant_Count += 1\n",
+        "\n",
+        "print(\"The Number of Vowels Are: \", Vowel_Count)\n",
+        "print(\"The Number of Consonants: \", Consonant_Count)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## 🟩 Exercise 26: Longest Word Finder\n",
+        "**Problem:** Ask the user for a sentence. Identify and print the longest word. Strip punctuation from words before comparing lengths.\n",
+        "\n",
+        "**Input:**\n",
+        "- A sentence with words and punctuation\n",
+        "\n",
+        "**Output:**\n",
+        "- The longest word (punctuation removed)"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {},
+      "outputs": [],
+      "source": [
+        "import string\n",
+        "\n",
+        "Sentence = input(\"Enter a sentence please: \")\n",
+        "\n",
+        "Translate = str.maketrans('', '', string.punctuation)\n",
+        "Cleaned_Sentence = Sentence.translate(Translate)\n",
+        "\n",
+        "Words = Cleaned_Sentence.split()\n",
+        "Longest_Word = max(Words, key=len)\n",
+        "\n",
+        "print(\"The longest word in your sentence is:\", Longest_Word)\n"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## 🟩 Exercise 27: Sentence Type Breakdown\n",
+        "**Problem:** Ask the user for a block of text. Count how many sentences end with `.`, `?`, and `!`. Display a breakdown of sentence types.\n",
+        "\n",
+        "**Input:**\n",
+        "- A block of text\n",
+        "\n",
+        "**Output:**\n",
+        "- Total number of sentences\n",
+        "- Number of declarative (.), interrogative (?), and exclamatory (!) sentences"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {},
+      "outputs": [],
+      "source": [
+        "txt = input(\"Enter text please: \")\n",
+        "\n",
+        "Period = txt.count(\".\")\n",
+        "Question_Mark = txt.count(\"?\")\n",
+        "Exclaimation_Point = txt.count(\"!\")\n",
+        "\n",
+        "Total = Period + Question_Mark + Exclaimation_Point\n",
+        "\n",
+        "print(\"Total Sentences: \", Total)\n",
+        "print(\"Sentences ending in a 'period' (.) = \", Period)\n",
+        "print(\"Sentences ending in a 'question mark' (?) = \", Question_Mark)\n",
+        "print(\"Sentences ending in an 'exclaimation point' (!) = \", Exclaimation_Point)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "## Exercise 28: Caesar Cipher Key Finder\n",
+        "\n",
+        "Objective: Write a program to decode a message when the key is unknown, using reasoning instead of trying all shifts.\n",
+        "\n",
+        "Scenario:\n",
+        "-    You receive an encrypted message:\n",
+        "-    Encrypted message: 'KHOOR ZRUOG'\n",
+        "-    Hint: The first word is 'HELLO'\n",
+        "  \n",
+        "  \n",
+        "Tasks:\n",
+        "-    Identify the shift key\n",
+        "-    Use the hint ('HELLO') to determine the number of positions the letters were shifted.\n",
+        "-    Think: 'H' ? 'K', what shift was applied?\n",
+        "-    Decode the full message\n",
+        "-    Write a function decode_caesar(message, key) that takes the encrypted message and the key you found.\n",
+        "-    Print the decrypted message."
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {},
+      "outputs": [],
+      "source": [
+        "def decode(message, key):\n",
+        "    decoded = \"\"\n",
+        "    for char in message:\n",
+        "        if char.isalpha():\n",
+        "            shift = ord(char) - key\n",
+        "            if char.isupper():\n",
+        "                decoded += chr((shift - 65) % 26 + 65)\n",
+        "            else:\n",
+        "                decoded += chr((shift - 97) % 26 + 97)\n",
+        "        else:\n",
+        "            decoded += char\n",
+        "    return decoded\n",
+        "\n",
+        "Encrypted_Message = \"KHOOR ZRUOG\"\n",
+        "key = 1\n",
+        "\n",
+        "Decoded = decode(encrypted_message, key)\n",
+        "print(\"Shift key found = \", key)\n",
+        "print(\"Decrypted message = \", decode)\n"
+      ]
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "display_name": "venv",
+      "language": "python",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.10.18"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 2
+}
