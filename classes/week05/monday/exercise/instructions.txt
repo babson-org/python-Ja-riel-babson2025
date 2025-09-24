@@ -4,7 +4,8 @@ When a purchase is made our cash position will need to be adjusted
 this should happen in the _update_postions() function
 Is the cash adjustment a transaction? Does it need to be added to 
 the transactions list?
-
+   - Cash position should go under "buy_input." because we are not 
+   withdrawing or making a CONTRIBUTION
 Place all error checking logic for a BUY transaction inside of buy_input.py
 valid tickers for purchase are in the file ticker.data
 For now, ask user for ticker, shares and transaction price

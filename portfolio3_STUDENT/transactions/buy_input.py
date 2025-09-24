@@ -1,3 +1,6 @@
 def buy_input(active_client, clients):
+    if: 
+    else
+        ErrorValue: 
     print('get some input from user')
     print('if user finishes or enters "" return')
