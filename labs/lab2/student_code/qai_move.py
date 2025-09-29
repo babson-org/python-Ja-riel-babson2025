@@ -9,10 +9,8 @@ def ai_move(board: list[int]):
         
         so in this case your function should return 2
     """
-""""" For the computer to choose the next available space
-for idx in range(9):
-    if abs(board[idx]) != 10: return idx    
-"""
+    
+    import sys
 
     # TODO: Loop through boardt
         # CREATE THE BOARD
@@ -24,48 +22,22 @@ def create_board(board):
     print('---+---+--')
     print(f'{board[6]} | {board[7]} | {board[8]}')
 
+    for idx in range(9):
+        if abs(board[idx]) != 10: return idx 
+
+'X' == 10
+'O' == -10
+score = {'player': 10, 'ai': -10}
+
 create_board(board)
         # IDENTIFY THE USER AND THE ASK THEM TO PICK A NUMBER FOR 'X' OR 'O'
-#print(input('Please select either "X" or "O": '))
-#while User_select not in ['X', 'O']:
-  # User_select = input('Would you like to be "X" or "O"? PLEASE choose correctly: ')
         # CODE THE DEFAULT NUMBER THAT THE COMPUTER WILL USE TO BE 'X' OR '0'
-Player1 = input('Please select either "X" or "O": ')
-if Player1 == 'X':
-   Computer = 'O'
-elif Player1 == 'O':
-    computer = 'X'
-else: 
-    print('PLEASE SELECT EITHER "X" OR "O": ')
-    Player1 = 'X'
-    Computer = 'O'
-print(f'You are {Player1}')
-print(f'You are playing against the Computer -- {Computer}')
-        # CREATE A FOR LOOP 
-Turn1 = int(input('Select a cell (1 - 9): '))
-Turn2 = int(input('Please select your next move: '))
-Turn3 = int(input('Please select your final move: '))
-
-def player_moves(board, Player1):
-    while True:
-        Turn1
-        if board[move] in ['X', 'O']:
-            print('That spot is taken. Please try again!: ')
-            continue
-        board[move = Player1]
-        break
-    
-if Turn1 == (1,2,3,4,5,6,7,8,9):
-    Computer = 
         # THAT ALLOWS THE COMPUTER TO ANTICIPATE THE NEXT MOVE OF THE USER
-def check_win(board, Player1):
-    Winning_Combos = [0, 4, 8], [2, 4, 6], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 1, 2], [3, 4, 5], [6, 7, 8]
-    for combo in Winning_Combos:
-        if all (board[i] == Player1 for i in combo):
-            return True
-    return False
+ai_name = 'Big Mean Machine'
+player_name = input('Please enter your name: ')
+sys.stdout.flush()
 
-check_win(board, Player1) 
+print(input('Please select either "X" or "O": '))
 
 
 
