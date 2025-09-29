@@ -9,6 +9,11 @@ def ai_move(board: list[int]):
         
         so in this case your function should return 2
     """
+""""" For the computer to choose the next available space
+for idx in range(9):
+    if abs(board[idx]) != 10: return idx    
+"""
+
     # TODO: Loop through boardt
         # CREATE THE BOARD
 board = [str(i) for i in range(1,10)]
