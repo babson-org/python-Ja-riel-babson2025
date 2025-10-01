@@ -33,17 +33,114 @@ create_board(board)
         # IDENTIFY THE USER AND THE ASK THEM TO PICK A NUMBER FOR 'X' OR 'O'
         # CODE THE DEFAULT NUMBER THAT THE COMPUTER WILL USE TO BE 'X' OR '0'
         # THAT ALLOWS THE COMPUTER TO ANTICIPATE THE NEXT MOVE OF THE USER
-ai_name = 'Big Mean Machine'
-player_name = input('Please enter your name: ')
-sys.stdout.flush()
 
-print(input('Please select either "X" or "O": '))
+    # TODO: Find the first index where abs(cell) != 10
+        # CREATE A FOR LOOP (OR WHILE LOOP) TO DETERMINE WHERE THE COMPUTER WILL PLACE
+        # ITS 'X' OR 'O' AFTER THE USER'S INPUT
+    # TODO: Return that index as the AI's move
+        # PRINT THE OUT PUT OF WHERE THE COMPUTER ITS MOVE
+
+def play_game():
+    """
+    Runs a full game of Tic-Tac-Toe between the player and the AI.
+    """
+ # Get player name and assign AI name.
+    ai_name = 'Big Mean Machine'
+    player_name = input('Please enter your name: ')
+
+    # First Player uses +10, Second Player uses -10.
+    score = {'player_name': 10, 'ai_name': -10}  # defualt human goes first
+
+    # Tracks whose turn it is. True = player's turn, False = AI's turn.
+    if playerTurn == True:
+        print(int(input('Enter a number 1-9: ')))
+    else playerTurn == False:
+    
+    # Initialize an empty board: numbers 1-9 represent available spaces.
+    board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    # The "player_win" variable stores the winning score used for comparisons later.
+    # By default, 30 means the player wins.
+    player_win = 30
+
+    # Set difficulty: False = easy (random AI), True = hard (minimax AI).
+    play_hard = True  # TODO: Change to False once ai_move.py is ready.
+
+    # Clear the screen to start fresh.
+    clear_screen()
+
+    
+    sys.stdout.flush()
+
+    # Ask who plays first: 1 = player, 2 = computer.
+    txt = 'Who plays first (1/you, 2/computer)? '
+    while True:
+        try:
+            first_to_play = int(input(txt))
+            # Input must be 1 or 2 only.
+            if first_to_play not in (1, 2):
+                raise ValueError
+            break
+        except ValueError:
+            # If invalid input, ask again.
+            txt = 'Please enter 1 or 2 '
+
+    # If the AI plays first, swap scoring roles and set playerTurn to False.
+    if first_to_play == 2:
+        score['player'], score['ai'] = score['ai'], score['player']
+        playerTurn = False
+        player_win = -30  # Winning score reversed if AI goes first.
+
+    # Main game loop: continues until game_over(board) returns True.
+    while not game_over(board):
+        # Show the current board.
+        print_board(board)
+
+        if playerTurn:
+            # Player's turn: prompt for move.
+            print(f"{player_name} moves")
+            player_move(board, score)
+        else:
+            # AI's turn.
+            print(f"{ai_name} moves")
+            time.sleep(2)  # Add delay for dramatic effect.
+
+            # Choose AI move: hard mode uses minimax, easy mode uses random.
+            if play_hard:
+                move = find_move(board, playerTurn)
+            else:
+                move = ai_move(board)
+
+            # Mark AI's move on the board.
+            board[move] = score['ai']
+
+        # Switch turns.
+        playerTurn = not playerTurn
+
+    # Game over: display final board state.
+    print_board(board)
+
+    # Calculate final score.
+    score = calc_score(board)
+
+    # Display result.
+    if score == player_win:
+        print(f"Congratulations {player_name}, you beat me. Big Deal!\n")
+    elif score == -player_win:
+        print(f"I WON! I WON! The {ai_name} WON!!\n")
+    else:
+        print("It's a tie!\n")
 
 
 
     # TODO: Find the first index where abs(cell) != 10
         # CREATE A FOR LOOP (OR WHILE LOOP) TO DETERMINE WHERE THE COMPUTER WILL PLACE
         # ITS 'X' OR 'O' AFTER THE USER'S INPUT
+
+def available_moves():
+    for idx in range(9):
+        if board[idx] != 'X' or 'O':
+
     # TODO: Return that index as the AI's move
         # PRINT THE OUT PUT OF WHERE THE COMPUTER ITS MOVE
 
