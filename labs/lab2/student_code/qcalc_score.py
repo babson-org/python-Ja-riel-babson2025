@@ -33,15 +33,36 @@ else: return 0
         # TODO: Return 30 if X wins, -30 if O wins otherwise do not return
             # PRINTS A STATEMENT TO THE USER AS TO WHETHER THEY WON OR NOT
             # IF/ELSE STATEMENT IS NEEDED
+        total = board[a] + board[b] + board[c]
+        if total == 30:
+            return 30
+        elif total == -30:
+            return -30
+        return None
         pass
      
     # TODO: For each of the 8 ways to win
         # IF STATEMENTS THAT IDENTIFY EACH OF THE POSSIBLE MOVES THE USER COULD MAKE TO WIN
         # NEEDS TO INCLUDE HOW THE COMPUTER WILL RESPOND TO THE USER'S MOVE
+    winning_lines = [
+        (0, 1, 2),
+        (3, 4, 5),  
+        (6, 7, 8),  
+        (0, 3, 6),  
+        (1, 4, 7),  
+        (2, 5, 8),  
+        (0, 4, 8),  
+        (2, 4, 6),  
+        ]
     # TODO: Check the cells in each row, column, or diagonal using line_sum
         # CHECKS EACH CELL FOR AN 'X' OR 'O' VALUE IN EITHER A ROW, COLUMN, OR DIAGONAL
         # LINE_SUM 
     # TODO: Return 0 if line_sum() didn't return 30 or -30
-        #
+    for a, b, c in winning_lines:
+        result = line_sum(a, b, c)
+    if result is not None:
+        return result
+    if line_sum != 30 or -30
+        return 0
     pass
 

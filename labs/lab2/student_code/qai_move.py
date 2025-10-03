@@ -12,10 +12,6 @@ def ai_move(board: list[int]):
         so in this case your function should return 2
     """
     # TODO: Loop through board
-    for idx, cell in enumerate(board):
-        if abs(cell) != 10: 
-        return idx
-    return None
     # CREATE THE BOARD
 board = [str(i) for i in range(1,10)]
 def create_board(board: list [int | str]):
@@ -40,34 +36,26 @@ for cell in board:
         Game_symbols.append(str(cell))
     # THAT ALLOWS THE COMPUTER TO ANTICIPATE THE NEXT MOVE OF THE USER
 
-
    # TODO: Find the first index where abs(cell) != 10
         # CREATE A FOR LOOP (OR WHILE LOOP) TO DETERMINE WHERE THE COMPUTER WILL PLACE
         # ITS 'X' OR 'O' AFTER THE USER'S INPUT
     # TODO: Return that index as the AI's move
         # PRINT THE OUT PUT OF WHERE THE COMPUTER ITS MOVE
-
-
-
-while True:
-    try:
-        move = int(input("Pick a number (1-9): ")) - 1  # adjust for index
-    if move < 0 or move > 8:
-        print("Invalid choice! Enter a number between 1 and 9!: ")
-        continue
-    if abs(board[move]) == 10:
-        print("That spot is already taken! Try again.")
-        continue
-    if board[move] == score['player']:
-        break
-    except ValueError:
-    print("Invalid choice! Please enter a number.")
-
+def available_moves(board: list[int]): list[int]:
+    """
+    Returns list of indices where moves are still possible.
+    """
+    for idx in idx, cell in enumerate(board):
+        if abs(cell) != 10: 
+    return None
 
 def play_game():
     """
     Runs a full game of Tic-Tac-Toe between the player and the AI.
     """
+    # TODO: Find the first index where abs(cell) != 10
+        # CREATE A FOR LOOP (OR WHILE LOOP) TO DETERMINE WHERE THE COMPUTER WILL PLACE
+        # ITS 'X' OR 'O' AFTER THE USER'S INPUT
  # Get player name and assign AI name.
     ai_name = 'Big Mean Machine'
     player_name = input('Please enter your name: ')
@@ -85,7 +73,7 @@ def play_game():
     player_win = 30
 
     # Set difficulty: False = easy (random AI), True = hard (minimax AI).
-    play_hard = True  # TODO: Change to False once ai_move.py is ready.
+    play_hard = False  # TODO: Change to False once ai_move.py is ready.
 
     # Clear the screen to start fresh.
     clear_screen()
@@ -152,20 +140,8 @@ def play_game():
     else:
         print("It's a tie!\n")
 
-
-
-    # TODO: Find the first index where abs(cell) != 10
-        # CREATE A FOR LOOP (OR WHILE LOOP) TO DETERMINE WHERE THE COMPUTER WILL PLACE
-        # ITS 'X' OR 'O' AFTER THE USER'S INPUT
-
-def available_moves():
-    for idx in range(9):
-        if board[idx] != 'X' or 'O':
-
     # TODO: Return that index as the AI's move
         # PRINT THE OUT PUT OF WHERE THE COMPUTER ITS MOVE
 
 pass
 
-  # adjust for index
-    
