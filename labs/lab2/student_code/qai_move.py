@@ -41,11 +41,12 @@ for cell in board:
         # ITS 'X' OR 'O' AFTER THE USER'S INPUT
     # TODO: Return that index as the AI's move
         # PRINT THE OUT PUT OF WHERE THE COMPUTER ITS MOVE
-def available_moves(board: list[int]): list[int]:
+def available_moves(board: list[int]): 
+    list[int]
     """
     Returns list of indices where moves are still possible.
     """
-    for idx in idx, cell in enumerate(board):
+    for idx in board, cell in enumerate(board):
         if abs(cell) != 10: 
     return None
 

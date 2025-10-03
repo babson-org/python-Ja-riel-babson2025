@@ -21,25 +21,24 @@ elif abs(board[3] + board[4] + board[5]) == 10: board[3] + board[4] + board[5]
 else: return 0
 """
 
+total = board['a'] + board['b'] + board['c']
 
-    def line_sum(a, b, c):
+def line_sum(a, b, c):
         '''
             line_sum takes 3 numbers and if the sum is either 30
             or -30 returns that sum otherwise do not return
         '''         
          
-        # TODO: Sum the values at board[a], board[b], board[c] 
+    # TODO: Sum the values at board[a], board[b], board[c] 
             # '_ =_' CALCULATES THE SUM OF MOVES FROM THE USER
-        # TODO: Return 30 if X wins, -30 if O wins otherwise do not return
+     # TODO: Return 30 if X wins, -30 if O wins otherwise do not return
             # PRINTS A STATEMENT TO THE USER AS TO WHETHER THEY WON OR NOT
             # IF/ELSE STATEMENT IS NEEDED
-        total = board[a] + board[b] + board[c]
-        if total == 30:
-            return 30
-        elif total == -30:
-            return -30
-        return None
-        pass
+    if total == 30:
+        return 30
+    elif total == -30:
+        return -30
+    return None
      
     # TODO: For each of the 8 ways to win
         # IF STATEMENTS THAT IDENTIFY EACH OF THE POSSIBLE MOVES THE USER COULD MAKE TO WIN
@@ -62,7 +61,7 @@ else: return 0
         result = line_sum(a, b, c)
     if result is not None:
         return result
-    if line_sum != 30 or -30
+    if line_sum != 30 or -30:
         return 0
     pass
 

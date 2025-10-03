@@ -46,7 +46,7 @@ def print_board(board: list[int]):
     elif value == -10:
         return 'O'
     else:
-        return None
+        return str(value)
         
     clear_screen()
     
