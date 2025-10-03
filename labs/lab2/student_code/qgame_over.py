@@ -11,7 +11,14 @@ def game_over(board: list[int]):
     # TODO: Check if all cells are filled (abs(cell) == 10)
     # TODO: Use calc_score to check if someone has won
     # TODO: Return True if game over, otherwise False
-    pass
+    
+    score = calc_score(board)
+    if score == 30 or score == -30:
+        return True
+    if all(abs(cell) == 10 for cell in board):
+        return True
+    else:
+        return False
 
     
 
