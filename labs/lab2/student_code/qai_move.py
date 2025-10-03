@@ -1,3 +1,5 @@
+import sys
+
 def ai_move(board: list[int]):
     """
         Simple AI that selects the first available cell.
@@ -9,36 +11,58 @@ def ai_move(board: list[int]):
         
         so in this case your function should return 2
     """
-    
-    import sys
-
-    # TODO: Loop through boardt
-        # CREATE THE BOARD
+    # TODO: Loop through board
+    for idx, cell in enumerate(board):
+        if abs(cell) != 10: 
+        return idx
+    return None
+    # CREATE THE BOARD
 board = [str(i) for i in range(1,10)]
-def create_board(board):
+def create_board(board: list [int | str]):
     print(f'{board[0]} | {board[1]} | {board[2]}')
     print('---+---+--')
     print(f'{board[3]} | {board[4]} | {board[5]}')
     print('---+---+--')
     print(f'{board[6]} | {board[7]} | {board[8]}')
-
-    for idx in range(9):
-        if abs(board[idx]) != 10: return idx 
-
+    # IDENTIFY THE USER AND THE ASK THEM TO PICK A NUMBER FOR 'X' OR 'O'
 'X' == 10
 'O' == -10
 score = {'player': 10, 'ai': -10}
+    # CODE THE DEFAULT NUMBER THAT THE COMPUTER WILL USE TO BE 'X' OR '0'
+Game_symbols = []
 
-create_board(board)
-        # IDENTIFY THE USER AND THE ASK THEM TO PICK A NUMBER FOR 'X' OR 'O'
-        # CODE THE DEFAULT NUMBER THAT THE COMPUTER WILL USE TO BE 'X' OR '0'
-        # THAT ALLOWS THE COMPUTER TO ANTICIPATE THE NEXT MOVE OF THE USER
+for cell in board:
+    if cell == 10:
+        Game_symbols.append("X")
+    elif cell == -10:
+        Game_symbols.append("O")
+    else:
+        Game_symbols.append(str(cell))
+    # THAT ALLOWS THE COMPUTER TO ANTICIPATE THE NEXT MOVE OF THE USER
 
-    # TODO: Find the first index where abs(cell) != 10
+
+   # TODO: Find the first index where abs(cell) != 10
         # CREATE A FOR LOOP (OR WHILE LOOP) TO DETERMINE WHERE THE COMPUTER WILL PLACE
         # ITS 'X' OR 'O' AFTER THE USER'S INPUT
     # TODO: Return that index as the AI's move
         # PRINT THE OUT PUT OF WHERE THE COMPUTER ITS MOVE
+
+
+
+while True:
+    try:
+        move = int(input("Pick a number (1-9): ")) - 1  # adjust for index
+    if move < 0 or move > 8:
+        print("Invalid choice! Enter a number between 1 and 9!: ")
+        continue
+    if abs(board[move]) == 10:
+        print("That spot is already taken! Try again.")
+        continue
+    if board[move] == score['player']:
+        break
+    except ValueError:
+    print("Invalid choice! Please enter a number.")
+
 
 def play_game():
     """
@@ -52,9 +76,6 @@ def play_game():
     score = {'player_name': 10, 'ai_name': -10}  # defualt human goes first
 
     # Tracks whose turn it is. True = player's turn, False = AI's turn.
-    if playerTurn == True:
-        print(int(input('Enter a number 1-9: ')))
-    else playerTurn == False:
     
     # Initialize an empty board: numbers 1-9 represent available spaces.
     board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -145,3 +166,6 @@ def available_moves():
         # PRINT THE OUT PUT OF WHERE THE COMPUTER ITS MOVE
 
 pass
+
+  # adjust for index
+    
