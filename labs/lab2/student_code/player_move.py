@@ -15,11 +15,14 @@ def player_move(board: list[int], score: dict[str, int]):
             move = int(input(ask)) - 1
             if move < 0 or move > 8:
                 ask = "Invalid choice. Please enter a number (1-9): "
+                continue
             if abs(board[move]) == 10:
                 ask = "That spot has been selected! Try again! (1-9): "
                 continue
+            
             board[move] = score['player']
             break
+        
         except ValueError:
             ask = "Invalid input. Try again (1-9): "
 
