@@ -1,3 +1,7 @@
-ROWS = None
-COLS = None
-MINES = None
+rows = None
+cols = None
+mines = None
+
+HIDDEN = '#'
+MINE = '+'
+BLANK = ' '
