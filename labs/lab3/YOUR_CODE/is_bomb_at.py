@@ -7,6 +7,6 @@ Checks to see where the bombs are located on the board
 '''
 
 def is_bomb_at():
-    if 0 <= rows < len(board) and 0 <= cols < len(board[0]):
-        return board[rows][cols] == MINE
+    if 0 <= ROWS < len(board) and 0 <= COLS < len(board[0]):
+        return board[ROWS][COLS] == "+"
     return False

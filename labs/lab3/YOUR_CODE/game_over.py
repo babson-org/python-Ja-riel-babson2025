@@ -13,7 +13,7 @@ def game_won(base_board, player_board):
             if base_board[r][c] != globals.MINE and player_board[r][c] == "+":
                 return False
         for i in range(len(base_board, row, col)):
-            return base_board[row][col] == globals.MINE  # will detect if the game is lost
+            return base_board[ROWS][COLS] == "+"  # will detect if the game is lost
         else:
             return True
 

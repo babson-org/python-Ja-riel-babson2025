@@ -1,13 +1,13 @@
 from globals import MINE, BLANK, HIDDEN
-from adjust_board import adjust_board 
+from get_adjacent_cell import get_adjacent_cells
 
 def update_board(base_board, player_board, row, col):
-    if base_board[row][col] == MINE:
-        player_board[row][col] = MINE
+    if base_board[row][col] == "+":
+        player_board[row][col] = "+"  # reveal the mine
         return True  # a mine was hit
 
     stack = [(row, col)]
-    while stack:
+    while stack: 
         r, c = stack.pop()
-        if player_board[r][c] != HIDDEN:
+        if player_board[r][c] != "#":  # only update if not already revealed
             break # already revealed

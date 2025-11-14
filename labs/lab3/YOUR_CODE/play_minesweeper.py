@@ -18,7 +18,7 @@ def play_minesweep():
 
     base = initialize_board(rows, cols)
     place_mines(base_board, num_mines)
-    player_board = initialize_board(rows, cols, fill =globals.MINES)
+    player_board = initialize_board(rows, cols, fill = "+")
 
     while True:
         print_board(player_board)
