@@ -1,3 +1,4 @@
+# Sets up the number of rows and columns for the board
 ROWS = 7
 COLS = 7
 
