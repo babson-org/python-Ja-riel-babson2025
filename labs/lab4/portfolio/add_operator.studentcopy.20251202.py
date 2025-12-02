@@ -50,3 +50,57 @@ def portfolio_add_operator(self, other):
     new_port.positions = list(merged.values())
 
     return new_port
+
+
+
+def portfolio_add_operator(self, other): 
+    """TODO: Return a NEW Portfolio with merged positions and cash.
+    - client name: f"{self.client}+{other.client}"
+    - cash = self.cash + other.cash
+    - positions merged per symbol (shares and cost added)
+    """
+
+    from portfolio import Portfolio
+
+    # Reject unsupported types
+    if not isinstance(other, Portfolio):
+        return NotImplemented
+
+    # New client name
+    new_name = f"{self.name}+{other.name}"
+    new_port = Portfolio(new_name)
+
+    # Combine cash
+    new_port.cash = float(self.cash) + float(other.cash)
+
+    # Merge positions
+    merged = {}
+
+    # Load positions from self
+    for pos in self.positions:
+        sym = pos["sym"]
+        merged[sym] = {
+            "sym": sym,
+            "name": pos["name"],
+            "shares": pos["shares"],
+            "cost": pos["cost"]
+        }
+
+    # Merge or add positions from other
+    for pos in other.positions:
+        sym = pos["sym"]
+        if sym in merged:
+            merged[sym]["shares"] += pos["shares"]
+            merged[sym]["cost"] += pos["cost"]
+        else:
+            merged[sym] = {
+                "sym": sym,
+                "name": pos["name"],
+                "shares": pos["shares"],
+                "cost": pos["cost"]
+            }
+
+    # Store merged list
+    new_port.positions = list(merged.values())
+
+    return new_port

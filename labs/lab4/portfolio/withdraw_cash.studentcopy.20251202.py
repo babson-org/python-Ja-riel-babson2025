@@ -19,4 +19,29 @@ def portfolio_withdraw_cash(self, amount: float):
         time.sleep(1)
 
     return None
-        
+
+
+
+
+
+import time
+def portfolio_withdraw_cash(self, amount: float):
+    """TODO:
+    - Reject negative
+    - Reject if amount > cash
+    - Otherwise subtract from self.cash
+    """
+    if amount < 0:
+        print("You cannot withdraw a negative amount.")
+        time.sleep(1)
+
+    elif amount > self.cash:
+        print(f"You only have ${self.cash:,.2f}. Sell some stock first!")
+        time.sleep(1)
+
+    else:
+        self.cash -= amount
+        print(f"Your check for ${amount:,.2f} is in the mail.")
+        time.sleep(1)
+
+    return None
