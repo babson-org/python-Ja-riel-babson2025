@@ -10,5 +10,6 @@ class Stock:
         """TODO: include symbol, shares, and cost (format flexible)."""
         
         return f"COMPLETE THIS LINE"
-        
-        
+    
+
+    

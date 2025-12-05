@@ -40,19 +40,10 @@ def _find_position(self, sym):
     return None
 
 def portfolio_buy_stock(self, sym: str, shares: float, price: float):
-    """TODO:    
-    - Validate sym in DOW30
-    - Validate shares > 0
-    - Fetch last-close price via _prices.get_last_close_map([sym])
-    - Make sure the client has enough cash to buy (price * shares)
-    - Add purchase to existing or new position
-    - Decrease client cash
-    - Print ONLY for invalid ticker or insufficient funds
-    """
-
     # ---- Validate ticker ----------------------------------------------------
     if sym not in _prices.DOW30:
         print(f"Invalid ticker: {sym}")
+    else:
         return
 
     # ---- Validate shares ----------------------------------------------------
@@ -94,5 +85,4 @@ def portfolio_buy_stock(self, sym: str, shares: float, price: float):
     # ---- Deduct cash --------------------------------------------------------
     self.cash -= total_cost
 
-    # No success print (main.py handles it)
     return
