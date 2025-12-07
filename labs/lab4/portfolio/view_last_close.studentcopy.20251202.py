@@ -10,10 +10,6 @@ def portfolio_view_last_close(self):
     # Extract ticker symbols from positions
     symbols = [pos["sym"] for pos in self.positions]
 
-    # If no positions, return empty dict
-    if not symbols:
-        return {}
-
     # Fetch last-close prices
     last_close = _prices.get_last_close(symbols)
 

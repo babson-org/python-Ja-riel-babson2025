@@ -5,10 +5,6 @@ def portfolio_view_realtime(self):
     # Extract tickers from positions
     syms = [pos["sym"] for pos in self.positions]
 
-    # If no positions, return empty dict
-    if not syms:
-        return {}
-
     # Fetch realtime prices
     px_map = _prices.get_live_map(syms)
 
